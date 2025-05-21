@@ -1,0 +1,60 @@
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--gradient-bg);
+  filter: blur(0.5px); /* Slight blur reduces banding */
+  transform: scale(1.01); /* Avoid edge blur cutoff */
+}
+
+/* Light mode (default) */
+:root {
+  --bg-color: hsl(200, 60%, 99%);
+  --bg-color-remove: hsl(200, 60%, 99%);
+  --bg-color-all: hsl(200, 60%, 99%);
+  --bg-color-active: hsl(200, 60%, 99%);
+  --bg-color-inactive: hsl(200, 60%, 99%);
+  --filtered-colors: hsl(3, 71%, 56%);
+  --surface-color: hsl(0, 0%, 93%);
+  --card-color: hsl(217, 61%, 90%);
+  --text-color: hsl(227, 75%, 14%);
+  --text-secondary-color: hsl(226, 11%, 37%);
+  --border-color: hsl(0, 0%, 78%);
+  --error-color: hsl(3, 71%, 56%);
+
+  --gradient-bg: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+}
+/* Dark mode overrides */
+.dark {
+  --bg-color: hsl(226, 25%, 17%);
+  --bg-color-remove: hsl(226, 25%, 14%);
+  --bg-color-all: hsl(226, 25%, 14%);
+  --bg-color-active: hsl(226, 25%, 14%);
+  --bg-color-inactive: hsl(226, 25%, 14%);
+  --filtered-colors: hsl(3, 77%, 44%);
+  --surface-color: hsl(225, 23%, 24%);
+  --card-color: hsl(226, 11%, 37%);
+  --text-color: hsl(0, 0%, 93%);
+  --text-secondary-color: hsl(0, 0%, 78%);
+  --border-color: hsla(0, 0%, 39%, 0.637);
+  --error-color: hsl(3, 77%, 44%);
+
+  --gradient-bg: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+.remove-hover {
+  background-color: var(--bg-color-remove);
+}
+
+.remove-hover:hover {
+  background-color: var(--error-color);
+}
